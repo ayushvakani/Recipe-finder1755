@@ -15,10 +15,13 @@ export default function Login() {
         email,
         password,
       });
+
       if (error) throw error;
-      navigate('/search');
-    } catch (error) {
-      setError(error.message);
+
+      // ✅ Redirect to home after successful login
+      navigate('/');
+    } catch (error: any) {
+      setError(error?.message || 'An unexpected error occurred.');
     }
   };
 
